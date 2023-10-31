@@ -11,7 +11,11 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
-      forbidNonWhitelisted:true
+      forbidNonWhitelisted:true,
+      transform:true, //tranforma nuestros dtos para que la paginacion funcione como number y no como string
+      transformOptions: { //para convertir nuestros dtos
+        enableImplicitConversion: true
+      }
     })
   )
 
